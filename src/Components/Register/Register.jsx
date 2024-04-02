@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { authContext } from "../../AuthProvider";
+import toast from "react-hot-toast";
 function Register() {
   const { createRegiterUser } = useContext(authContext);
   const [errorMessage, setErrorMessage] = useState("");
@@ -28,8 +29,15 @@ function Register() {
     setErrorMessage("");
 
     createRegiterUser(email, password)
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
+      .then((res) => {
+        console.log(res.user);
+        const successMessage = "Your register has been successfull";
+        toast.success(successMessage);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
   };
 
   return (

@@ -9,7 +9,7 @@ import Login from "./Components/Login/Login";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import AuthProvider from "./AuthProvider";
-// ..
+import { Toaster } from "react-hot-toast";
 AOS.init();
 const router = createBrowserRouter([
   {
@@ -35,6 +35,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
+      <Toaster />
     </AuthProvider>
   </React.StrictMode>
 );

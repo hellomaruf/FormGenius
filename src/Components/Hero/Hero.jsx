@@ -1,12 +1,12 @@
 function Hero() {
   return (
     <div className="">
-      <div className=" grid grid-cols-2 items-center justify-center min-h-[calc(100vh-64px)]">
-        <div className="col-span-1 px-32">
+      <div className=" grid grid-cols-1 space-y-10 py-10 mb-10 md:grid-cols-2 items-center justify-center min-h-[calc(100vh-64px)]">
+        <div className="col-span-1 px-12 md:px-32 text-center md:text-left">
           <h1
             data-aos="fade-right"
             data-aos-duration="1000"
-            className="text-5xl font-bold"
+            className="text-4xl md:text-5xl font-bold"
           >
             Hello Peaple Welcome to{" "}
             <span className="text-[#545DBF]">Form Genius</span>
@@ -37,7 +37,7 @@ function Hero() {
           data-aos-duration="1000"
           className="col-span-1 bg-purple-100 h-full flex items-center px-10"
         >
-          <img src="hero.png" className="max-w-xl rounded-lg" />
+          <img src="hero.png" className=" rounded-lg" />
         </div>
       </div>
     </div>

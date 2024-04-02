@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext} from "react";
 import { authContext } from "../../AuthProvider";
+import toast from "react-hot-toast";
 
 function Login() {
   const { signInUser, signInWithGoogle, signInWithGithub } =
@@ -27,6 +28,8 @@ function Login() {
     signInWithGithub()
       .then((result) => {
         console.log(result.user);
+        const successMessage = "Your register has been successfull";
+        toast.success(successMessage);
       })
       .catch((error) => {
         console.log(error);
@@ -35,7 +38,7 @@ function Login() {
 
   return (
     <div className="">
-      <div className="grid grid-cols-2 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center">
         <div
           data-aos="fade-right"
           data-aos-duration="1000"
@@ -44,11 +47,11 @@ function Login() {
           <img className="" src="res.png" alt="" />
         </div>
         <div data-aos="fade-left" data-aos-duration="900" className="">
-          <div className="mx-28 space-y-2">
+          <div className="mx-6 md:mx-28 space-y-2">
             <h2 className="font-bold text-3xl ">Login to your Account</h2>
             <p>Welcome back select mathod to Login</p>
           </div>
-          <div className=" mx-28 mt-4 space-x-4">
+          <div className=" mx-6 md:mx-28 mt-4 space-x-4">
             <button onClick={handleSignInWithGoogle} className="btn">
               Google <img className="w-4" src="google.png" alt="" />
             </button>
@@ -60,7 +63,7 @@ function Login() {
             onSubmit={handleSignIn}
             data-aos="fade-left"
             data-aos-duration="1000"
-            className=" col-span-1 max-w-xl mt-2 mx-28"
+            className=" col-span-1 max-w-xl mt-2 mx-6 md:mx-28"
           >
             <div className="form-control">
               <label className="label">

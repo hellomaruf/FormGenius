@@ -5,7 +5,7 @@ function Nav() {
     <div data-aos="fade-down" className="max-w-7xl mx-auto ">
       <div className="navbar bg-base-100 ">
         <div className="flex-1">
-          <a className=" text-3xl font-bold">
+          <a className=" text-2xl md:text-3xl font-bold">
             Form<span className="text-[#545DBF] font-normal">Genius</span>
           </a>
         </div>
