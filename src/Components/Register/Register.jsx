@@ -1,15 +1,32 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { authContext } from "../../AuthProvider";
 function Register() {
   const { createRegiterUser } = useContext(authContext);
-  console.log(createRegiterUser);
+  const [errorMessage, setErrorMessage] = useState("");
   const handleRegisterSignIn = (e) => {
     e.preventDefault();
     console.log("hello");
-    const name = e.target.name.value;
+    // const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.conPassword.value;
+    if (password.length < 6) {
+      setErrorMessage("Password must be 6 character");
+      return;
+    }
+    if (password !== confirmPassword) {
+      setErrorMessage("Password didn't match");
+      return;
+    }
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{8,}$/;
+    if (!regex.test(password)) {
+      setErrorMessage(
+        "Password must contain uppercase lowercase special characters"
+      );
+      return;
+    }
+    setErrorMessage("");
+
     createRegiterUser(email, password)
       .then((res) => console.log(res))
       .catch((error) => console.log(error));
@@ -77,6 +94,7 @@ function Register() {
               </a>
             </label>
           </div>
+          <small className="text-red-700">{errorMessage}</small>
           <div className="form-control mt-6">
             <button className="btn bg-[#545DBF] hover:bg-[#4850a9] text-white">
               Register
