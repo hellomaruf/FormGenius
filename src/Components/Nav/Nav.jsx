@@ -1,28 +1,46 @@
+import { NavLink } from "react-router-dom";
+
 function Nav() {
   return (
-    <div className="navbar bg-base-100">
-      <div className="flex-1">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
-      </div>
-      <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Link</a>
-          </li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2 bg-base-100 rounded-t-none">
-                <li>
-                  <a>Link 1</a>
-                </li>
-                <li>
-                  <a>Link 2</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-        </ul>
+    <div className="max-w-7xl mx-auto">
+      <div className="navbar bg-base-100 ">
+        <div className="flex-1">
+          <a className=" text-3xl font-bold">
+            Form<span className="text-[#545DBF] font-normal">Genius</span>
+          </a>
+        </div>
+        <div className=" flex gap-6">
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#545DBF] font-semibold"
+                : "text-gray-800 font-semibold"
+            }
+            to="/"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#545DBF] font-semibold"
+                : "text-gray-800 font-semibold"
+            }
+            to="/login"
+          >
+            Login
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#545DBF] font-semibold"
+                : "text-gray-800 font-semibold"
+            }
+            to="/register"
+          >
+            Regiser
+          </NavLink>
+        </div>
       </div>
     </div>
   );
