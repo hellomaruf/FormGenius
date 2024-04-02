@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { authContext } from "../../AuthProvider";
+
 function Login() {
+  const { name, age } = useContext(authContext);
+  console.log(name, age);
   return (
     <div className="">
       <div className="grid grid-cols-2 items-center">
