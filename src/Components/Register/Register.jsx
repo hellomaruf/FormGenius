@@ -2,7 +2,11 @@ function Register() {
   return (
     <div className="">
       <div className="grid grid-cols-2 items-center">
-        <form className="card-body col-span-1 max-w-xl  mx-28">
+        <form
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          className="card-body col-span-1 max-w-xl  mx-28"
+        >
           <div className="form-control">
             <label className="label">
               <span className="label-text">Name</span>
@@ -56,11 +60,15 @@ function Register() {
           </div>
           <div className="form-control mt-6">
             <button className="btn bg-[#545DBF] hover:bg-[#4850a9] text-white">
-              Login
+              Register
             </button>
           </div>
         </form>
-        <div className="col-span-1 flex justify-center p-16">
+        <div
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          className="col-span-1 flex justify-center p-16"
+        >
           <img className="" src="res.png" alt="" />
         </div>
       </div>

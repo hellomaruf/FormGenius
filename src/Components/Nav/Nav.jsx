@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function Nav() {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div data-aos="fade-down" className="max-w-7xl mx-auto ">
       <div className="navbar bg-base-100 ">
         <div className="flex-1">
           <a className=" text-3xl font-bold">

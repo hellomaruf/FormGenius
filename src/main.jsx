@@ -6,6 +6,10 @@ import MainLayout from "./Components/MainLayout/MainLayout";
 import Hero from "./Components/Hero/Hero";
 import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+// ..
+AOS.init();
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login/>
+        element: <Login />,
       },
     ],
   },

@@ -3,20 +3,40 @@ function Hero() {
     <div className="">
       <div className=" grid grid-cols-2 items-center justify-center min-h-[calc(100vh-64px)]">
         <div className="col-span-1 px-32">
-          <h1 className="text-5xl font-bold">
-            Hello Peaple Welcome <br /> to{" "}
+          <h1
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            className="text-5xl font-bold"
+          >
+            Hello Peaple Welcome to{" "}
             <span className="text-[#545DBF]">Form Genius</span>
           </h1>
-          <p className="py-6">
+          <p
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            data-aos-delay="1000"
+            className="py-6"
+          >
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <button className="btn bg-[#545DBF] hover:bg-[#4850a9] text-white">
-            Get Started
-          </button>
+          <div
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            data-aos-delay="1200"
+            className=""
+          >
+            <button className="btn bg-[#545DBF] hover:bg-[#4850a9] text-white">
+              Get Started
+            </button>
+          </div>
         </div>
-        <div className="col-span-1 bg-purple-100 h-full flex items-center px-10">
+        <div
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          className="col-span-1 bg-purple-100 h-full flex items-center px-10"
+        >
           <img src="hero.png" className="max-w-xl rounded-lg" />
         </div>
       </div>
