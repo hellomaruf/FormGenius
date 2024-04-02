@@ -2,8 +2,37 @@ import { useContext } from "react";
 import { authContext } from "../../AuthProvider";
 
 function Login() {
-  const { name, age } = useContext(authContext);
-  console.log(name, age);
+  const { signInUser, signInWithGoogle, signInWithGithub } =
+    useContext(authContext);
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    signInUser(email, password)
+      .then((res) => console.log(res.user))
+      .catch((error) => console.log(error));
+  };
+
+  const handleSignInWithGoogle = () => {
+    signInWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleSignInWithGithub = () => {
+    signInWithGithub()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="">
       <div className="grid grid-cols-2 items-center">
@@ -20,14 +49,15 @@ function Login() {
             <p>Welcome back select mathod to Login</p>
           </div>
           <div className=" mx-28 mt-4 space-x-4">
-            <button className="btn">
+            <button onClick={handleSignInWithGoogle} className="btn">
               Google <img className="w-4" src="google.png" alt="" />
             </button>
-            <button className="btn">
+            <button onClick={handleSignInWithGithub} className="btn">
               Github <img className="w-4" src="github.png" alt="" />
             </button>
           </div>
           <form
+            onSubmit={handleSignIn}
             data-aos="fade-left"
             data-aos-duration="1000"
             className=" col-span-1 max-w-xl mt-2 mx-28"
@@ -62,6 +92,7 @@ function Login() {
                 <span className="label-text">Password</span>
               </label>
               <input
+                name="password"
                 type="password"
                 placeholder="Enter your Comfirm Password"
                 className="input input-bordered"

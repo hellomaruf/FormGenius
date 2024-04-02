@@ -1,8 +1,25 @@
+import { useContext } from "react";
+import { authContext } from "../../AuthProvider";
 function Register() {
+  const { createRegiterUser } = useContext(authContext);
+  console.log(createRegiterUser);
+  const handleRegisterSignIn = (e) => {
+    e.preventDefault();
+    console.log("hello");
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const confirmPassword = e.target.conPassword.value;
+    createRegiterUser(email, password)
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="">
       <div className="grid grid-cols-2 items-center">
         <form
+          onSubmit={handleRegisterSignIn}
           data-aos="fade-right"
           data-aos-duration="1000"
           className="card-body col-span-1 max-w-xl  mx-28"
@@ -36,6 +53,7 @@ function Register() {
               <span className="label-text">Password</span>
             </label>
             <input
+              name="password"
               type="password"
               placeholder="Enter your Password"
               className="input input-bordered"
@@ -47,6 +65,7 @@ function Register() {
               <span className="label-text">Confirm Password</span>
             </label>
             <input
+              name="conPassword"
               type="password"
               placeholder="Enter your Comfirm Password"
               className="input input-bordered"
