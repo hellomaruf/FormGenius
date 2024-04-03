@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../../AuthProvider";
 
 function Nav() {
@@ -46,16 +46,26 @@ function Nav() {
           </NavLink>
         </div>
         <div className=" flex items-center gap-4">
-          <span>{user?.email}</span>
-          <button
-            onClick={logOut}
-            className="btn bg-[#545DBF] hover:bg-[#4850a9] text-white"
-          >
-            Sign Out
-          </button>
+          <span>{user?.email ? user?.email : user?.displayName}</span>
+          {user ? (
+            <button
+              onClick={logOut}
+              className="btn bg-[#545DBF] hover:bg-[#4850a9] text-white"
+            >
+              Sign Out
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="btn bg-[#545DBF] hover:bg-[#4850a9] text-white"
+            >
+              Sign In
+            </Link>
+          )}
+
           <div className="avatar">
             <div className="w-12 rounded-full">
-              <img src={user?.photoURL} />
+              <img src={user?.photoURL ? user?.photoURL : "profile.webp"} />
             </div>
           </div>
         </div>

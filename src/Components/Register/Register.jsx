@@ -101,6 +101,10 @@ function Register() {
                 Forgot password?
               </a>
             </label>
+            <input
+              type="file"
+              className="file-input file-input-bordered w-full max-w-xs"
+            />
           </div>
           <small className="text-red-700">{errorMessage}</small>
           <div className="form-control mt-6">
