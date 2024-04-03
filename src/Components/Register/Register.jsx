@@ -35,7 +35,7 @@ function Register() {
         toast.success(successMessage);
       })
       .catch((error) => {
-        const errorMessage = error.message;
+        const errorMessage = error.message.split("/")[1].split(")");
         toast.error(errorMessage);
       });
   };

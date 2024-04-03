@@ -1,15 +1,19 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { authContext } from "../../AuthProvider";
 
 function Nav() {
+  const { user } = useContext(authContext);
+  console.log(user);
   return (
-    <div data-aos="fade-down" className="max-w-7xl mx-auto ">
-      <div className="navbar bg-base-100 ">
-        <div className="flex-1">
+    <div data-aos="fade-down" className="max-w-7xl mx-auto py-3">
+      <div className=" flex justify-between items-center">
+        <div className="">
           <a className=" text-2xl md:text-3xl font-bold">
             Form<span className="text-[#545DBF] font-normal">Genius</span>
           </a>
         </div>
-        <div className=" flex gap-6">
+        <div className="flex gap-8">
           <NavLink
             className={({ isActive }) =>
               isActive
@@ -40,6 +44,17 @@ function Nav() {
           >
             Regiser
           </NavLink>
+        </div>
+        <div className=" flex items-center gap-4">
+          <span>{user?.email}</span>
+          <button className="btn bg-[#545DBF] hover:bg-[#4850a9] text-white">
+            Sign Out
+          </button>
+          <div className="avatar">
+            <div className="w-12 rounded-full">
+              <img src={user?.photoURL} />
+            </div>
+          </div>
         </div>
       </div>
     </div>
