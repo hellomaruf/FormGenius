@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "./firebase.config";
@@ -43,12 +44,17 @@ function AuthProvider({ children }) {
       unSubscribe();
     };
   }, []);
+  // logged out **********
+  const logOut = () => {
+    return signOut(auth);
+  };
   const authInfo = {
     createRegiterUser,
     signInUser,
     signInWithGoogle,
     signInWithGithub,
-    user
+    user,
+    logOut
   };
   return (
     <div>

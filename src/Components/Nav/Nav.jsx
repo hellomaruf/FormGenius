@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { authContext } from "../../AuthProvider";
 
 function Nav() {
-  const { user } = useContext(authContext);
+  const { user, logOut } = useContext(authContext);
   console.log(user);
   return (
     <div data-aos="fade-down" className="max-w-7xl mx-auto py-3">
@@ -47,7 +47,10 @@ function Nav() {
         </div>
         <div className=" flex items-center gap-4">
           <span>{user?.email}</span>
-          <button className="btn bg-[#545DBF] hover:bg-[#4850a9] text-white">
+          <button
+            onClick={logOut}
+            className="btn bg-[#545DBF] hover:bg-[#4850a9] text-white"
+          >
             Sign Out
           </button>
           <div className="avatar">
